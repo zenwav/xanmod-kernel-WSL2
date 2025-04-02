@@ -43,6 +43,7 @@ jobs:
         GOBIN=/usr/bin go install go.chromium.org/luci/cipd/client/cmd/...@latest
         cipd install fuchsia/third_party/clang/linux-amd64 latest -root /usr/local/fuchsia-clang
         echo "PATH=/usr/local/fuchsia-clang/bin:$PATH" >> $GITHUB_ENV
+        export PATH="/usr/local/fuchsia-clang/bin:$PATH"
         echo "/usr/lib/libmimalloc.so" > /etc/ld.so.preload
         clang -v
 
