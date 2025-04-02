@@ -45,7 +45,8 @@ jobs:
         echo "PATH=/usr/local/fuchsia-clang/bin:$PATH" >> $GITHUB_ENV
         export PATH="/usr/local/fuchsia-clang/bin:$PATH"
         echo "/usr/lib/libmimalloc.so" > /etc/ld.so.preload
-        clang -v
+        echo "#############################################################"
+        clang -### -E -x c -march=x86-64-v3 - < /dev/null 2>&1
 
     - name: Trust this directory
       run: git config --global --add safe.directory '*' # v2.35.3 or later
