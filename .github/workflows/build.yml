@@ -44,6 +44,7 @@ jobs:
         cipd install fuchsia/third_party/clang/linux-amd64 latest -root /usr/local/fuchsia-clang
         echo "PATH=/usr/local/fuchsia-clang/bin:$PATH" >> $GITHUB_ENV
         echo "/usr/lib/libmimalloc.so" > /etc/ld.so.preload
+        clang -v
 
     - name: Trust this directory
       run: git config --global --add safe.directory '*' # v2.35.3 or later
